@@ -13,14 +13,9 @@ repeat(abs(v)) {
 		{
 			show_debug_message( "dead---" );
 			
-			lives --;
 			createPlatform( x, y - heightCreatePlatform );
 			//instance_create_layer(x,y - 32, "Instances", o_spine );
-			if( lives <= 0 )
-			{
-				room_restart();
-				return;
-			}
+			liveLost();
 			
 			x = originX;
 			y = originY;
@@ -52,26 +47,23 @@ repeat(abs(h)) {
 // ------ STATES MACHINE ---------------------------------- //
 switch (state) {
     case IDLE: 
-        image_speed = 0.15;
+        //image_speed = 0.15;
         //sprite_index = sPlayerIdle;
+		global.isPlayJumpSound = false;
     break;
     
-    //case RUN: 
-    //    image_speed = 0.5; 
-    //    sprite_index = sPlayerRun;
-    //break;
+    case RUN: 
+        //image_speed = 0.5; 
+		global.isPlayJumpSound = false;
+    break;
     
-    //case JUMP:
-    //    image_speed = 0.5; 
-    //    // Jump and fall
-    //    if (v <= 0) 
-    //        sprite_index = sPlayerJump;  
-    //    else
-    //        sprite_index = sPlayerFall;
-            
-    //    if image_index >= image_number-1
-    //        image_speed = 0;
-    //break;
+    case JUMP:
+		if( global.isPlayJumpSound == false )
+		{
+			audio_play_sound( s_jump, 10, false );
+			global.isPlayJumpSound = true;
+		}
+    break;
 }
 
 // ------ WIN AND LOOSE CONDITIONS ------------------------ //
@@ -79,7 +71,7 @@ switch (state) {
 if (y > room_height + sprite_height/2)
 {
     //room_restart();
-	lives --;
+	liveLost();
 }
 // -------------------------------------------------------- //
 

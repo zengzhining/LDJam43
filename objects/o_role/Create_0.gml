@@ -1,4 +1,3 @@
-lives = 10;
 heightCreatePlatform = 16;
 // Movement speed
 h = 0;
