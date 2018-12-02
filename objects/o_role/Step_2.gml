@@ -105,16 +105,25 @@ switch (state) {
         image_speed = 0.15;
         sprite_index = s_role_idle;
 		global.isPlayJumpSound = false;
+		global.isPlayWalkSound = false;
+		audio_stop_sound( s_walk);
     break;
     
     case RUN: 
         image_speed = 0.5; 
 		sprite_index = s_role_run;
 		global.isPlayJumpSound = false;
+		if( global.isPlayWalkSound == false )
+		{
+			global.isPlayWalkSound = true;
+			audio_play_sound( s_walk, 20, true );
+		}
+		
     break;
     
     case JUMP:
-		
+		global.isPlayWalkSound = false;
+		audio_stop_sound( s_walk);
     break;
 }
 

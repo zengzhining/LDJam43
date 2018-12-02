@@ -14,7 +14,9 @@ This is a game for ldjam43, the theme is Sacrifices must be made(牺牲在所难
 
 音乐(C)
 
-游戏结束界面以及润色
+游戏背景(C)
+
+游戏结束界面以及润色(C)
 
 
 
