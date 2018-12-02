@@ -381,6 +381,25 @@
             }
         },
         {
+            "Key": "6de15d07-cc9e-4658-88bf-e3bb96456edd",
+            "Value": {
+                "id": "9d29238d-faaf-4ee3-b03f-59ec0551482e",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_role_run\/s_role_run.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "751b176a-a28c-4130-be8d-8903586528b4",
             "Value": {
                 "id": "43717262-5c20-409d-8f33-80217ee1f472",
@@ -723,6 +742,25 @@
             }
         },
         {
+            "Key": "ce748891-67db-4778-a49d-f09a702feabb",
+            "Value": {
+                "id": "738fe9fb-30b6-411d-a789-1b10c87867c8",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/o_globalInput\/o_globalInput.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d443f95b-eb5e-4164-8e77-f6c75b65ec3d",
             "Value": {
                 "id": "61b4fbeb-0680-41e8-9f0a-a923d56b6a47",
@@ -737,7 +775,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "sprites\/s_role\/s_role.yy",
+                "resourcePath": "sprites\/s_role_idle\/s_role_idle.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -758,6 +796,25 @@
                 ],
                 "resourcePath": "sounds\/s_die\/s_die.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "dbb84f3c-43b9-408f-a642-722f7f6cbad5",
+            "Value": {
+                "id": "8f3b88ff-480f-4367-95a5-b5820b4d0f03",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "rooms\/r_03\/r_03.yy",
+                "resourceType": "GMRoom"
             }
         },
         {

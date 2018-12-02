@@ -5,3 +5,8 @@ if( lives <= 0 )
 {
 	room_goto( 0 );
 }
+else 
+{
+	x = originX;
+	y = originY;
+}
