@@ -30,3 +30,5 @@ LEFT  = -1;
 // Initialize player's properties
 state  = IDLE;
 facing = RIGHT;
+
+global.gameRole = self;

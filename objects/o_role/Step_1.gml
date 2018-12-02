@@ -1,7 +1,7 @@
 /// Previous frame checks
 
 // Check if we're on the ground
-onGround = place_meeting(x,y+1,o_block);
+onGround = place_meeting(x,y+1,o_block) or place_meeting( x, y+1, o_spine );
 if( !onGround )
 {
 	if( place_meeting( x, y+1, o_meat ) )	

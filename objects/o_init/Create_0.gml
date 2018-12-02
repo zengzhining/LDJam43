@@ -1,3 +1,5 @@
-lives = 10;
+lives = 21;
 global.isPlayJumpSound = false;
-room_goto_next();
+global.gameRole = noone;
+
+audio_stop_sound( s_mainbgm );

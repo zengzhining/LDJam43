@@ -5,6 +5,8 @@ image_xscale = facing; // Player sprite always looks on facing direction
 
 // COLLISIONS AND POSITION UPDATE ------------------------- //
 // Vertical
+if( abs(v) > 0 )
+{
 	repeat(abs(v)) {
 	    if (!place_meeting(x, y + sign(v), o_block) )
 		{
@@ -19,6 +21,7 @@ image_xscale = facing; // Player sprite always looks on facing direction
 					createPlatform( x, y - dir * heightCreatePlatform );
 					//instance_create_layer(x,y - 32, "Instances", o_spine );
 					liveLost();
+					instance_destroy(obj);
 					break;
 				}
 			}
@@ -52,38 +55,47 @@ image_xscale = facing; // Player sprite always looks on facing direction
 			break; // ..and we stop checking vertical collisions this frame
 	    }
 	}
+}
 // Horizontal
-repeat(abs(h)) {  
-    if ( (!place_meeting(x + sign(h), y, o_block) 
-	&& !place_meeting(x + sign(h), y, o_spine)
-	) )
-	{
-		x += sign(h); //If player don't collide left or right, update x position
-	}
-    else 
-	{
-		if( place_meeting( x + sign(h), y, o_spine ) ) 
+if( abs(h) > 0 )
+{
+	repeat(abs(h)) {  
+	    if ( (!place_meeting(x + sign(h), y, o_block) 
+		&& !place_meeting(x + sign(h), y, o_spine)
+		) )
 		{
-			var obj = instance_place( x + sign(h), y, o_spine )
-			if(270 == obj.image_angle or 90 == obj.image_angle  )
+			x += sign(h); //If player don't collide left or right, update x position
+		}
+	    else 
+		{
+			if( place_meeting( x + sign(h), y, o_spine ) ) 
 			{
-				var dir = 1;
-				if( 90 == obj.image_angle ) dir = -1;
+				var obj = instance_place( x + sign(h), y, o_spine )
+				if(270 == obj.image_angle or 90 == obj.image_angle  )
+				{
+					var dir = 1;
+					if( 90 == obj.image_angle ) dir = -1;
 				
-				createPlatform( x + dir * widthCreatePlatform , y - heightCreatePlatform );
-				liveLost();
+					createPlatform( x + dir * widthCreatePlatform , y + heightCreatePlatform );
+					liveLost();
+					instance_destroy(obj);
+					break;
+				}
 			}
-		}
-		//else if ( place_meeting( x + sign(h), y, o_meat ) )
-		//{
-		//	x += sign(h);
-		//}
-		else
-		{
-	        h = 0; // If he collides, can't go further...
-	        break; // ..and we stop checking horizontal collisions this frame
-		}
-    }
+			//else if ( place_meeting( x + sign(h), y, o_meat ) )
+			//{
+			//	x += sign(h);
+			//}
+			else
+			{
+		        h = 0; // If he collides, can't go further...
+		        break; // ..and we stop checking horizontal collisions this frame
+			}
+	    }
+	}
+}
+else 
+{
 }
 // -------------------------------------------------------- //
 
